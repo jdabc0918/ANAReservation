@@ -14,6 +14,11 @@ public:
 
 private:
 	Ui::mainWindowClass ui;
+
+	//	プッシュボタンを初期化する
+	void InitPushButtons();
+
+	public slots:
 };
 
 #endif // MAINWINDOW_H

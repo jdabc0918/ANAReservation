@@ -16,10 +16,10 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
+#include "mypushbutton.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -27,7 +27,10 @@ class Ui_mainWindowClass
 {
 public:
     QWidget *centralWidget;
-    QPushButton *BronzeButton;
+    myPushButton *BronzeButton;
+    myPushButton *SFCButton;
+    myPushButton *PlatinumButton;
+    myPushButton *DiamondButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -39,18 +42,30 @@ public:
         mainWindowClass->resize(600, 400);
         centralWidget = new QWidget(mainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        BronzeButton = new QPushButton(centralWidget);
+        BronzeButton = new myPushButton(centralWidget);
         BronzeButton->setObjectName(QStringLiteral("BronzeButton"));
         BronzeButton->setGeometry(QRect(10, 10, 180, 65));
-        QIcon icon;
-        icon.addFile(QStringLiteral("icon/bronze.png"), QSize(), QIcon::Normal, QIcon::Off);
-        BronzeButton->setIcon(icon);
         BronzeButton->setIconSize(QSize(180, 65));
         BronzeButton->setCheckable(true);
+        SFCButton = new myPushButton(centralWidget);
+        SFCButton->setObjectName(QStringLiteral("SFCButton"));
+        SFCButton->setGeometry(QRect(10, 80, 180, 65));
+        SFCButton->setIconSize(QSize(180, 65));
+        SFCButton->setCheckable(true);
+        PlatinumButton = new myPushButton(centralWidget);
+        PlatinumButton->setObjectName(QStringLiteral("PlatinumButton"));
+        PlatinumButton->setGeometry(QRect(10, 150, 180, 65));
+        PlatinumButton->setIconSize(QSize(180, 65));
+        PlatinumButton->setCheckable(true);
+        DiamondButton = new myPushButton(centralWidget);
+        DiamondButton->setObjectName(QStringLiteral("DiamondButton"));
+        DiamondButton->setGeometry(QRect(10, 220, 180, 65));
+        DiamondButton->setIconSize(QSize(180, 65));
+        DiamondButton->setCheckable(true);
         mainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(mainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 21));
+        menuBar->setGeometry(QRect(0, 0, 600, 31));
         mainWindowClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(mainWindowClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -68,6 +83,9 @@ public:
     {
         mainWindowClass->setWindowTitle(QApplication::translate("mainWindowClass", "mainWindow", Q_NULLPTR));
         BronzeButton->setText(QString());
+        SFCButton->setText(QString());
+        PlatinumButton->setText(QString());
+        DiamondButton->setText(QString());
     } // retranslateUi
 
 };
