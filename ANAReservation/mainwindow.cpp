@@ -14,6 +14,11 @@ mainWindow::~mainWindow()
 
 }
 
+void mainWindow::PrintDate(QDate date)
+{
+	qDebug() << date.year() << "/" << date.month() << "/" << date.day();
+}
+
 void mainWindow::InitPushButtons()
 {
 	
