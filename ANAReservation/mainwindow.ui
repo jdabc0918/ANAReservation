@@ -14,13 +14,13 @@
    <string>mainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="GeneralButton">
+   <widget class="QPushButton" name="BronzeButton">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>238</width>
-      <height>108</height>
+      <width>180</width>
+      <height>65</height>
      </rect>
     </property>
     <property name="text">
@@ -32,9 +32,12 @@
     </property>
     <property name="iconSize">
      <size>
-      <width>238</width>
-      <height>108</height>
+      <width>180</width>
+      <height>65</height>
      </size>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

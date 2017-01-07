@@ -27,7 +27,7 @@ class Ui_mainWindowClass
 {
 public:
     QWidget *centralWidget;
-    QPushButton *GeneralButton;
+    QPushButton *BronzeButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -39,13 +39,14 @@ public:
         mainWindowClass->resize(600, 400);
         centralWidget = new QWidget(mainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        GeneralButton = new QPushButton(centralWidget);
-        GeneralButton->setObjectName(QStringLiteral("GeneralButton"));
-        GeneralButton->setGeometry(QRect(10, 10, 238, 108));
+        BronzeButton = new QPushButton(centralWidget);
+        BronzeButton->setObjectName(QStringLiteral("BronzeButton"));
+        BronzeButton->setGeometry(QRect(10, 10, 180, 65));
         QIcon icon;
         icon.addFile(QStringLiteral("icon/bronze.png"), QSize(), QIcon::Normal, QIcon::Off);
-        GeneralButton->setIcon(icon);
-        GeneralButton->setIconSize(QSize(238, 108));
+        BronzeButton->setIcon(icon);
+        BronzeButton->setIconSize(QSize(180, 65));
+        BronzeButton->setCheckable(true);
         mainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(mainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -66,7 +67,7 @@ public:
     void retranslateUi(QMainWindow *mainWindowClass)
     {
         mainWindowClass->setWindowTitle(QApplication::translate("mainWindowClass", "mainWindow", Q_NULLPTR));
-        GeneralButton->setText(QString());
+        BronzeButton->setText(QString());
     } // retranslateUi
 
 };
