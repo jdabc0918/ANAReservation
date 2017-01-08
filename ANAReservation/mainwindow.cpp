@@ -7,6 +7,9 @@ mainWindow::mainWindow(QWidget *parent)
 
 	//	プッシュボタンの初期化
 	InitPushButtons();
+
+	//	カレンダーの初期化
+	InitCalenderWidget();
 }
 
 mainWindow::~mainWindow()
@@ -14,19 +17,14 @@ mainWindow::~mainWindow()
 
 }
 
-void mainWindow::PrintDate(QDate date)
-{
-	qDebug() << date.year() << "/" << date.month() << "/" << date.day();
-}
-
 void mainWindow::InitPushButtons()
 {
-	
+
 #pragma region コネクト
-	QObject::connect(ui.BronzeButton, SIGNAL(toggled(bool)), ui.BronzeButton, SLOT(sl_SwitchIcon(bool)));
-	QObject::connect(ui.SFCButton, SIGNAL(toggled(bool)), ui.SFCButton, SLOT(sl_SwitchIcon(bool)));
-	QObject::connect(ui.PlatinumButton, SIGNAL(toggled(bool)), ui.PlatinumButton, SLOT(sl_SwitchIcon(bool)));
-	QObject::connect(ui.DiamondButton, SIGNAL(toggled(bool)), ui.DiamondButton, SLOT(sl_SwitchIcon(bool)));
+	QObject::connect(ui.BronzeButton, SIGNAL(clicked()), this, SLOT(sl_ButtonClicked()));
+	QObject::connect(ui.SFCButton, SIGNAL(clicked()), this, SLOT(sl_ButtonClicked()));
+	QObject::connect(ui.PlatinumButton, SIGNAL(clicked()), this, SLOT(sl_ButtonClicked()));
+	QObject::connect(ui.DiamondButton, SIGNAL(clicked()), this, SLOT(sl_ButtonClicked()));
 #pragma endregion
 
 #pragma region アイコンの読み込み
@@ -53,4 +51,25 @@ void mainWindow::InitPushButtons()
 	ui.DiamondButton->SetIcons(QIcon(pixmap_default), QIcon(pixmap_toggled), iconSize);
 #pragma endregion
 
+	//	ハンドラにボタンを登録する
+	m_bHandler.InitButtons(std::vector<myPushButton *>{ ui.BronzeButton, ui.SFCButton, ui.PlatinumButton, ui.DiamondButton});
+}
+
+void mainWindow::InitCalenderWidget()
+{
+#pragma region コネクト
+	QObject::connect(ui.calendarWidget, SIGNAL(selectionChanged()), this, SLOT(sl_UpdateReservationDate()));
+#pragma endregion
+
+}
+
+void mainWindow::sl_ButtonClicked()
+{
+	m_bHandler.UpdateSelection();
+	qDebug() << __FUNCTION__ << ": current Index = " << m_bHandler.GetCurrentIndex();
+}
+
+void mainWindow::sl_UpdateReservationDate()
+{
+	qDebug() << __FUNCTION__ << ":" << ui.calendarWidget->selectedDate();
 }

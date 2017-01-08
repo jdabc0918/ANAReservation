@@ -16,14 +16,17 @@ public:
 
 private:
 	Ui::mainWindowClass ui;
-
-	//	日付を出力する
-	void PrintDate(QDate date);
+	PushButtonHandler m_bHandler;
 
 	//	プッシュボタンを初期化する
 	void InitPushButtons();
 
+	//	カレンダーを初期化する
+	void InitCalenderWidget();
+
 	public slots:
+	void sl_ButtonClicked();
+	void sl_UpdateReservationDate();
 };
 
 #endif // MAINWINDOW_H

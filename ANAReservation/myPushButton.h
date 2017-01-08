@@ -2,6 +2,10 @@
 
 #include <QPushButton>
 
+/**
+*	@class	myPushButton
+*	@brief	アイコン切り替えを行うボタン
+**/
 class myPushButton : public QPushButton
 {
 	Q_OBJECT
@@ -15,12 +19,12 @@ public:
 	myPushButton(QWidget *parent);
 	~myPushButton();
 
-	//	アイコンをセットする
+	//	アイコン情報を登録する
 	void SetIcons(QIcon icon_default, QIcon icon_Toggled, QSize icon_size);
 
 public slots:
 	
 //	アイコンを切り替える
-void sl_SwitchIcon(bool toggled_flag);
+void sl_SwitchIcon(bool isSelected);
 
 };

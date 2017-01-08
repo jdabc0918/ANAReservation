@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -31,6 +32,7 @@ public:
     myPushButton *SFCButton;
     myPushButton *PlatinumButton;
     myPushButton *DiamondButton;
+    QCalendarWidget *calendarWidget;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -39,7 +41,7 @@ public:
     {
         if (mainWindowClass->objectName().isEmpty())
             mainWindowClass->setObjectName(QStringLiteral("mainWindowClass"));
-        mainWindowClass->resize(600, 400);
+        mainWindowClass->resize(770, 460);
         centralWidget = new QWidget(mainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         BronzeButton = new myPushButton(centralWidget);
@@ -49,23 +51,26 @@ public:
         BronzeButton->setCheckable(true);
         SFCButton = new myPushButton(centralWidget);
         SFCButton->setObjectName(QStringLiteral("SFCButton"));
-        SFCButton->setGeometry(QRect(10, 80, 180, 65));
+        SFCButton->setGeometry(QRect(200, 10, 180, 65));
         SFCButton->setIconSize(QSize(180, 65));
         SFCButton->setCheckable(true);
         PlatinumButton = new myPushButton(centralWidget);
         PlatinumButton->setObjectName(QStringLiteral("PlatinumButton"));
-        PlatinumButton->setGeometry(QRect(10, 150, 180, 65));
+        PlatinumButton->setGeometry(QRect(390, 10, 180, 65));
         PlatinumButton->setIconSize(QSize(180, 65));
         PlatinumButton->setCheckable(true);
         DiamondButton = new myPushButton(centralWidget);
         DiamondButton->setObjectName(QStringLiteral("DiamondButton"));
-        DiamondButton->setGeometry(QRect(10, 220, 180, 65));
+        DiamondButton->setGeometry(QRect(580, 10, 180, 65));
         DiamondButton->setIconSize(QSize(180, 65));
         DiamondButton->setCheckable(true);
+        calendarWidget = new QCalendarWidget(centralWidget);
+        calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
+        calendarWidget->setGeometry(QRect(10, 90, 320, 289));
         mainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(mainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 31));
+        menuBar->setGeometry(QRect(0, 0, 770, 31));
         mainWindowClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(mainWindowClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

@@ -9,18 +9,17 @@ myPushButton::~myPushButton()
 {
 }
 
-//	アイコンをセットする
+//	アイコン情報を登録する
 void myPushButton::SetIcons(QIcon icon_default, QIcon icon_Toggled, QSize icon_size)
 {
 	m_iconDefault = icon_default;
 	m_iconToggled = icon_Toggled;
 	this->setIconSize(icon_size);
-	this->setIcon(m_iconDefault);
 }
 
 //	アイコンを切り替える
-void myPushButton::sl_SwitchIcon(bool toggled_flag)
+void myPushButton::sl_SwitchIcon(bool isSelected)
 {
-	if (toggled_flag) this->setIcon(m_iconDefault);
+	if (!isSelected) this->setIcon(m_iconDefault);
 	else this->setIcon(m_iconToggled);
 }
