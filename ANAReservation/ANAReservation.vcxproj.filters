@@ -59,6 +59,9 @@
     <ClCompile Include="myPushButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ANADate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.h">
@@ -79,6 +82,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="CommonHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ANADate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,4 +2,6 @@
 
 //	Qt
 #include <QDebug>
-#include <QDate>
+
+//	My Class
+#include "ANADate.h"
