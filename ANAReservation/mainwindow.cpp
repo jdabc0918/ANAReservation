@@ -5,11 +5,17 @@ mainWindow::mainWindow(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	//	設定データ読み込み
+
+	//	初期値設定
+	int init_selected_index = 0;
+	QDate init_date = QDate::currentDate();
+
 	//	プッシュボタンの初期化
-	InitPushButtons();
+	InitPushButtons(init_selected_index);
 
 	//	カレンダーの初期化
-	InitCalenderWidget();
+	InitCalenderWidget(init_date);
 }
 
 mainWindow::~mainWindow()
@@ -17,7 +23,7 @@ mainWindow::~mainWindow()
 
 }
 
-void mainWindow::InitPushButtons()
+void mainWindow::InitPushButtons(int init_selected_index)
 {
 
 #pragma region コネクト
@@ -52,15 +58,32 @@ void mainWindow::InitPushButtons()
 #pragma endregion
 
 	//	ハンドラにボタンを登録する
-	m_bHandler.InitButtons(std::vector<myPushButton *>{ ui.BronzeButton, ui.SFCButton, ui.PlatinumButton, ui.DiamondButton});
+	m_bHandler.InitButtons(std::vector<myPushButton *>{ ui.BronzeButton, ui.SFCButton, ui.PlatinumButton, ui.DiamondButton},
+		init_selected_index);
 }
 
-void mainWindow::InitCalenderWidget()
+void mainWindow::InitCalenderWidget(QDate init_date)
 {
 #pragma region コネクト
 	QObject::connect(ui.calendarWidget, SIGNAL(selectionChanged()), this, SLOT(sl_UpdateReservationDate()));
 #pragma endregion
 
+	//	カレンダーの選択をセット
+	//	hogehoge
+	ui.calendarWidget->selectedDate() = init_date;
+
+	//	ラベルを更新
+	UpdateReservationDateLabels(init_date);
+}
+
+void mainWindow::UpdateReservationDateLabels(QDate selected_date)
+{
+	QDate tabiwariDate = ANADate::GetReservationDateOf(selected_date, ANADate::RTYPE_TABIWARI75);
+	ui.Tabiwari75DateLabel->setText(tabiwariDate.toString("yyyy/MM/dd"));
+	QDate priorityDate = ANADate::GetReservationDateOf(selected_date, ANADate::RTYPE_PRIORITY);
+	ui.PriorityDateLabel->setText(priorityDate.toString("yyyy/MM/dd"));
+	QDate normalDate = ANADate::GetReservationDateOf(selected_date, ANADate::RTYPE_NORMAL);
+	ui.NormalDateLabel->setText(normalDate.toString("yyyy/MM/dd"));
 }
 
 void mainWindow::sl_ButtonClicked()
@@ -71,5 +94,10 @@ void mainWindow::sl_ButtonClicked()
 
 void mainWindow::sl_UpdateReservationDate()
 {
-	qDebug() << __FUNCTION__ << ":" << ui.calendarWidget->selectedDate();
+	//	カレンダーの日付を取得する
+	QDate selectedDate = ui.calendarWidget->selectedDate();
+	qDebug() << __FUNCTION__ << ":" << selectedDate;
+
+	//	日付に応じてラベルを更新する
+	UpdateReservationDateLabels(selectedDate);
 }

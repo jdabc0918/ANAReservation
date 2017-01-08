@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>mainWindow</string>
+   <string>ANA Reservation</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="myPushButton" name="BronzeButton">
@@ -110,6 +110,63 @@
       <width>320</width>
       <height>289</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Tabiwari75DateLabel">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>130</y>
+      <width>240</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Meiryo UI</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>1990/01/01</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PriorityDateLabel">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>210</y>
+      <width>240</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Meiryo UI</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>1990/01/01</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NormalDateLabel">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>290</y>
+      <width>240</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Meiryo UI</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>1990/01/01</string>
     </property>
    </widget>
   </widget>

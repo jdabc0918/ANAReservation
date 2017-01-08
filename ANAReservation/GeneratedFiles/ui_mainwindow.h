@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
@@ -33,6 +34,9 @@ public:
     myPushButton *PlatinumButton;
     myPushButton *DiamondButton;
     QCalendarWidget *calendarWidget;
+    QLabel *Tabiwari75DateLabel;
+    QLabel *PriorityDateLabel;
+    QLabel *NormalDateLabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -67,6 +71,21 @@ public:
         calendarWidget = new QCalendarWidget(centralWidget);
         calendarWidget->setObjectName(QStringLiteral("calendarWidget"));
         calendarWidget->setGeometry(QRect(10, 90, 320, 289));
+        Tabiwari75DateLabel = new QLabel(centralWidget);
+        Tabiwari75DateLabel->setObjectName(QStringLiteral("Tabiwari75DateLabel"));
+        Tabiwari75DateLabel->setGeometry(QRect(430, 130, 240, 60));
+        QFont font;
+        font.setFamily(QStringLiteral("Meiryo UI"));
+        font.setPointSize(20);
+        Tabiwari75DateLabel->setFont(font);
+        PriorityDateLabel = new QLabel(centralWidget);
+        PriorityDateLabel->setObjectName(QStringLiteral("PriorityDateLabel"));
+        PriorityDateLabel->setGeometry(QRect(430, 210, 240, 60));
+        PriorityDateLabel->setFont(font);
+        NormalDateLabel = new QLabel(centralWidget);
+        NormalDateLabel->setObjectName(QStringLiteral("NormalDateLabel"));
+        NormalDateLabel->setGeometry(QRect(430, 290, 240, 60));
+        NormalDateLabel->setFont(font);
         mainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(mainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -86,11 +105,14 @@ public:
 
     void retranslateUi(QMainWindow *mainWindowClass)
     {
-        mainWindowClass->setWindowTitle(QApplication::translate("mainWindowClass", "mainWindow", Q_NULLPTR));
+        mainWindowClass->setWindowTitle(QApplication::translate("mainWindowClass", "ANA Reservation", Q_NULLPTR));
         BronzeButton->setText(QString());
         SFCButton->setText(QString());
         PlatinumButton->setText(QString());
         DiamondButton->setText(QString());
+        Tabiwari75DateLabel->setText(QApplication::translate("mainWindowClass", "1990/01/01", Q_NULLPTR));
+        PriorityDateLabel->setText(QApplication::translate("mainWindowClass", "1990/01/01", Q_NULLPTR));
+        NormalDateLabel->setText(QApplication::translate("mainWindowClass", "1990/01/01", Q_NULLPTR));
     } // retranslateUi
 
 };

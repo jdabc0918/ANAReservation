@@ -19,10 +19,13 @@ private:
 	PushButtonHandler m_bHandler;
 
 	//	プッシュボタンを初期化する
-	void InitPushButtons();
+	void InitPushButtons(int init_selected_index);
 
 	//	カレンダーを初期化する
-	void InitCalenderWidget();
+	void InitCalenderWidget(QDate init_date);
+
+	//	日付ラベルを更新する
+	void UpdateReservationDateLabels(QDate selected_date);
 
 	public slots:
 	void sl_ButtonClicked();
