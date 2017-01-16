@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>770</width>
-    <height>460</height>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -115,16 +115,16 @@
    <widget class="QLabel" name="Tabiwari75DateLabel">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>470</x>
       <y>130</y>
-      <width>240</width>
+      <width>281</width>
       <height>60</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Meiryo UI</family>
-      <pointsize>20</pointsize>
+      <pointsize>36</pointsize>
      </font>
     </property>
     <property name="text">
@@ -134,16 +134,16 @@
    <widget class="QLabel" name="PriorityDateLabel">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>470</x>
       <y>210</y>
-      <width>240</width>
+      <width>281</width>
       <height>60</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Meiryo UI</family>
-      <pointsize>20</pointsize>
+      <pointsize>36</pointsize>
      </font>
     </property>
     <property name="text">
@@ -153,20 +153,135 @@
    <widget class="QLabel" name="NormalDateLabel">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>470</x>
       <y>290</y>
-      <width>240</width>
+      <width>281</width>
       <height>60</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Meiryo UI</family>
-      <pointsize>20</pointsize>
+      <pointsize>36</pointsize>
      </font>
     </property>
     <property name="text">
      <string>1990/01/01</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ReservationDateLabel">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>90</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>120</red>
+          <green>120</green>
+          <blue>120</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <family>Meiryo UI</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>予約開始日</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Tabiwari75Label">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>130</y>
+      <width>111</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Meiryo UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>旅割75</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PriorityLabel">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>210</y>
+      <width>121</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Meiryo UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>2週間前</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NormalLabel">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>290</y>
+      <width>111</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Meiryo UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>通常</string>
     </property>
    </widget>
   </widget>
@@ -176,7 +291,7 @@
      <x>0</x>
      <y>0</y>
      <width>770</width>
-     <height>31</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
