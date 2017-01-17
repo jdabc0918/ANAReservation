@@ -7,12 +7,16 @@ mainWindow::mainWindow(QWidget *parent)
 
 	//	設定データ読み込み
 
+	//	スタイル設定
+	this->setWindowFlags(Qt::FramelessWindowHint);
+
 	//	初期値設定
 	int init_selected_index = 0;
 	QDate init_date = QDate::currentDate();
 
 	//	プッシュボタンの初期化
 	InitPushButtons(init_selected_index);
+	sl_ButtonClicked();
 
 	//	カレンダーの初期化
 	InitCalenderWidget(init_date);
@@ -72,6 +76,12 @@ void mainWindow::InitCalenderWidget(QDate init_date)
 	//	hogehoge
 	ui.calendarWidget->selectedDate() = init_date;
 
+	//	グリッド表示
+	ui.calendarWidget->setGridVisible(true);
+
+	//	縦軸を非表示に設定
+	ui.calendarWidget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+
 	//	ラベルを更新
 	UpdateReservationDateLabels(init_date);
 }
@@ -90,6 +100,33 @@ void mainWindow::sl_ButtonClicked()
 {
 	m_bHandler.UpdateSelection();
 	qDebug() << __FUNCTION__ << ": current Index = " << m_bHandler.GetCurrentIndex();
+
+	int current_button = m_bHandler.GetCurrentIndex();
+	switch (current_button)
+	{
+	case 0:
+		this->setStyleSheet(
+			"QMainWindow{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(106, 70, 14, 255));}"
+		);
+		break;
+	case 1:
+		this->setStyleSheet(
+			"QMainWindow{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 31, 91, 255));}"
+		);
+		break;
+	case 2:
+		this->setStyleSheet(
+			"QMainWindow{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(7, 49, 144, 255));}"
+		);
+		break;
+	case 3:
+		this->setStyleSheet(
+			"QMainWindow{background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(137, 24, 52, 255));}"
+		);
+		break;
+	default:
+		break;
+	}
 }
 
 void mainWindow::sl_UpdateReservationDate()

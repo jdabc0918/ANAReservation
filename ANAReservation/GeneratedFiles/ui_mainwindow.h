@@ -17,9 +17,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 #include "mypushbutton.h"
 
@@ -41,15 +39,16 @@ public:
     QLabel *Tabiwari75Label;
     QLabel *PriorityLabel;
     QLabel *NormalLabel;
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
-    QStatusBar *statusBar;
+    QPushButton *ExitButton;
 
     void setupUi(QMainWindow *mainWindowClass)
     {
         if (mainWindowClass->objectName().isEmpty())
             mainWindowClass->setObjectName(QStringLiteral("mainWindowClass"));
-        mainWindowClass->resize(770, 450);
+        mainWindowClass->resize(770, 390);
+        mainWindowClass->setMinimumSize(QSize(770, 390));
+        mainWindowClass->setMaximumSize(QSize(770, 390));
+        mainWindowClass->setStyleSheet(QStringLiteral(""));
         centralWidget = new QWidget(mainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         BronzeButton = new myPushButton(centralWidget);
@@ -115,6 +114,7 @@ public:
         font2.setFamily(QStringLiteral("Meiryo UI"));
         font2.setPointSize(16);
         Tabiwari75Label->setFont(font2);
+        Tabiwari75Label->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
         PriorityLabel = new QLabel(centralWidget);
         PriorityLabel->setObjectName(QStringLiteral("PriorityLabel"));
         PriorityLabel->setGeometry(QRect(350, 210, 121, 60));
@@ -123,19 +123,17 @@ public:
         NormalLabel->setObjectName(QStringLiteral("NormalLabel"));
         NormalLabel->setGeometry(QRect(350, 290, 111, 60));
         NormalLabel->setFont(font2);
+        ExitButton = new QPushButton(centralWidget);
+        ExitButton->setObjectName(QStringLiteral("ExitButton"));
+        ExitButton->setGeometry(QRect(730, 350, 30, 30));
+        QFont font3;
+        font3.setFamily(QStringLiteral("Meiryo UI"));
+        ExitButton->setFont(font3);
+        ExitButton->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
         mainWindowClass->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(mainWindowClass);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 770, 21));
-        mainWindowClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(mainWindowClass);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        mainWindowClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(mainWindowClass);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        mainWindowClass->setStatusBar(statusBar);
 
         retranslateUi(mainWindowClass);
+        QObject::connect(ExitButton, SIGNAL(clicked()), mainWindowClass, SLOT(close()));
 
         QMetaObject::connectSlotsByName(mainWindowClass);
     } // setupUi
@@ -154,6 +152,7 @@ public:
         Tabiwari75Label->setText(QApplication::translate("mainWindowClass", "\346\227\205\345\211\26275", Q_NULLPTR));
         PriorityLabel->setText(QApplication::translate("mainWindowClass", "2\351\200\261\351\226\223\345\211\215", Q_NULLPTR));
         NormalLabel->setText(QApplication::translate("mainWindowClass", "\351\200\232\345\270\270", Q_NULLPTR));
+        ExitButton->setText(QApplication::translate("mainWindowClass", "\342\234\226", Q_NULLPTR));
     } // retranslateUi
 
 };
