@@ -88,12 +88,12 @@ void mainWindow::InitCalenderWidget(QDate init_date)
 
 void mainWindow::UpdateReservationDateLabels(QDate selected_date)
 {
-	QDate tabiwariDate = ANADate::GetReservationDateOf(selected_date, ANADate::RTYPE_TABIWARI75);
-	ui.Tabiwari75DateLabel->setText(tabiwariDate.toString("yyyy/MM/dd"));
-	QDate priorityDate = ANADate::GetReservationDateOf(selected_date, ANADate::RTYPE_PRIORITY);
-	ui.PriorityDateLabel->setText(priorityDate.toString("yyyy/MM/dd"));
+	QDate tabiwariDate = ANADate::GetReservationDateOf(selected_date, ANADate::RTYPE_TABIWARI75);	
+	QDate priorityDate = ANADate::GetReservationDateOf(selected_date, ANADate::RTYPE_PRIORITY);	
 	QDate normalDate = ANADate::GetReservationDateOf(selected_date, ANADate::RTYPE_NORMAL);
-	ui.NormalDateLabel->setText(normalDate.toString("yyyy/MM/dd"));
+	//ui.Tabiwari75DateLabel->setText(tabiwariDate.toString("yyyy/MM/dd"));
+	//ui.PriorityDateLabel->setText(priorityDate.toString("yyyy/MM/dd"));
+	//ui.NormalDateLabel->setText(normalDate.toString("yyyy/MM/dd"));
 }
 
 void mainWindow::sl_ButtonClicked()
